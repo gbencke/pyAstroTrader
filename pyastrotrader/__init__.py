@@ -23,11 +23,6 @@ def check_key_exists(json_dict, key, key2=None):
 
 
 def check_json(json_parsed):
-    for key in ['user_name', 'token']:
-        if check_key_exists(json_parsed, key) is None:
-            print("Key:{} is expected in json".format(key))
-            sys.exit(0)
-
     for key in [('config', 'postype'), ('config', 'zodiactype'),
                 ('config', 'house_system'), ('chart', 'longitude'),
                 ('chart', 'date'), ('chart', 'latitude'), ('chart',
@@ -61,3 +56,6 @@ def calculate_chart(input_json):
     config = load_config(input_data)
     output = generate_chart(config, input_data)
     return output
+
+
+__all__ = ['calculate_chart']
