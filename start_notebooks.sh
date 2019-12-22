@@ -3,13 +3,13 @@
 #Create a virtualenv if it doesnt exist
 if [ ! -d "./env" ]; then
         virtualenv -p python3 env
+        source env/bin/activate
+        pip install -r requirements.txt
+else
+        source env/bin/activate
 fi
 
 #Load the virtualenv created
-source env/bin/activate
-
-#Install the required python modules
-pip install -r requirements.txt
 
 #Start the jupyter lab...
 cd notebooks
