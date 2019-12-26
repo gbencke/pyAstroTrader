@@ -1,10 +1,11 @@
-
 from pyastrotrader.calculate import load_config, generate_chart
+from pyastrotrader.transits import calculate_aspects
+from pyastrotrader.transits import calculate_transits
 from .config import check_input
+
 
 def show_usage():
     pass
-
 
 
 def calculate_chart(input_json):
@@ -14,4 +15,4 @@ def calculate_chart(input_json):
     return output
 
 
-__all__ = ['calculate_chart']
+__all__ = ['calculate_transits', 'calculate_chart', 'calculate_aspects']
