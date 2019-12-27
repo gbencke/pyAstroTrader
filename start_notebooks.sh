@@ -11,6 +11,9 @@ fi
 
 #Load the virtualenv created
 
+export PYTHONPATH=$PYTHOPATH:$PWD
+export SWISSEPH_PATH=$PWD/pyastrotrader/swisseph
+
 #Start the jupyter lab...
 cd notebooks
 jupyter lab --ip='*' --port=8080 --no-browser
