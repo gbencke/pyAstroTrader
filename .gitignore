@@ -1,5 +1,6 @@
 env/
 notebooks/.ipynb_checkpoints/
+notebooks/input/.ipynb_checkpoints/
 .idea/
 notebooks/output/
 __pycache__/
