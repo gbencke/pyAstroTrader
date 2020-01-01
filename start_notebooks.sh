@@ -11,8 +11,9 @@ fi
 
 #Load the virtualenv created
 
-export PYTHONPATH=$PYTHOPATH:$PWD
+export PYTHONPATH=$PYTHOPATH:$PWD:$PWD/notebooks
 export SWISSEPH_PATH=$PWD/pyastrotrader/swisseph
+export ASSET_TO_CALCULATE=PETR4
 
 #Start the jupyter lab...
 cd notebooks
