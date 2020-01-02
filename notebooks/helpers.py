@@ -17,7 +17,8 @@ from pyastrotrader.constants import *
 from settings import *
 
 charts = {}
-transits = {}
+aspects = {}
+aspects_transiting = {}
 
 def correct_date(x):
     date_str = str(x['Date'])
@@ -148,10 +149,17 @@ def clean_price_stagnated(df, x, swing_trade_duration):
         return 0
     
 def is_aspected(row, first_planet, second_planet, aspect):
-    c_transits = transits[row['CorrectedDate']]
+    c_transits = aspects[row['CorrectedDate']]
     found_params = [x for x in c_transits if (x['c_planet'] == first_planet and x['n_planet'] == second_planet and x['c_aspect'] == aspect) or \
                                            (x['n_planet'] == first_planet and x['c_planet'] == second_planet and x['c_aspect'] == aspect) ]
     return 1 if len(found_params) > 0 else 0
+
+def is_aspected_transiting(row, first_planet, second_planet, aspect):
+    c_transits = aspects_transiting[row['CorrectedDate']]
+    found_params = [x for x in c_transits if (x['c_planet'] == first_planet and x['n_planet'] == second_planet and x['c_aspect'] == aspect) or \
+                                           (x['n_planet'] == first_planet and x['c_planet'] == second_planet and x['c_aspect'] == aspect) ]
+    return 1 if len(found_params) > 0 else 0
+
 
 def is_retrograde(row, planet):
     if planet in [SUN,MOON]:
