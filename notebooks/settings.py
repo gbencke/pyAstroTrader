@@ -21,7 +21,7 @@ DEFAULT_CONFIG = './config/default_config.json'
 SOURCE_FILE = "./input/{}_Daily".format(ASSET_TO_CALCULATE)
 
 ETA = 0.3
-DEPTH = 9
+DEPTH = 5
 NUM_TREES = 100
 MAX_INTERACTIONS = 100
 
