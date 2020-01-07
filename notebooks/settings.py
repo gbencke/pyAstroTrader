@@ -28,7 +28,7 @@ MAX_INTERACTIONS = 100
 
 param = {}
 param['booster'] = 'gbtree'
-param['objective'] = 'binary:logistic'
+param['objective'] = 'reg:squarederror'
 param['eval_metric'] = 'auc'
 param['tree_method'] = 'auto'
 param['silent'] = 0
