@@ -107,7 +107,8 @@ def clean_swing_trade(df, x, swing_trade_duration):
         return 0
     
 def detect_price_increase(x, stagnation_threshold):
-    return 1 if x['FutureTrendMax'] >= (x['Open'] * (1 + (stagnation_threshold / 100))) else 0
+    return min(stagnation_threshold * TOP_THRESHOLD, (((x['FutureTrendMax'] / x['Open']) - 1)) * 100) \
+               if x['FutureTrendMax'] > x['Open'] and x['FutureTrendMax'] > 0 else 0
 
 def clean_price_increase(df, x, swing_trade_duration):
     if x['StockIncreasedPrice'] == 1:
@@ -121,7 +122,8 @@ def clean_price_increase(df, x, swing_trade_duration):
         return 0
 
 def detect_price_decrease(x, stagnation_threshold):
-    return 1 if x['FutureTrendMin'] <= (x['Open'] * (1 - (stagnation_threshold / 100))) else 0
+    return min(stagnation_threshold * TOP_THRESHOLD, (((x['Open'] / x['FutureTrendMin']) - 1)) * 100) \
+               if x['FutureTrendMin'] <= x['Open'] and x['FutureTrendMin'] > 0 else 0
 
 def clean_price_decrease(df, x, swing_trade_duration):
     if x['StockDecreasedPrice'] == 1:
@@ -135,7 +137,8 @@ def clean_price_decrease(df, x, swing_trade_duration):
         return 0
 
 def detect_price_stagnated(x, stagnation_threshold):
-    return 0 if detect_price_increase(x, stagnation_threshold) or detect_price_decrease(x, stagnation_threshold) else 1
+    return 0 if detect_price_increase(x, stagnation_threshold) > stagnation_threshold or \
+                detect_price_decrease(x, stagnation_threshold) > stagnation_threshold else 1
 
 def clean_price_stagnated(df, x, swing_trade_duration):
     if x['StockStagnated'] == 1:
@@ -174,8 +177,6 @@ def create_booster_swing_trade(eta,depth,num_trees, train_x, train_y, test_x, te
     dtrain = xgb.DMatrix(train_x, train_y, feature_names = columns)
     dtest = xgb.DMatrix(test_x, test_y, feature_names = columns)
     train_labels = dtrain.get_label()
-    ratio = float(np.sum(train_labels == 0)) / np.sum(train_labels == 1) 
-    param['scale_pos_weight'] = ratio
     gpu_res = {}
     booster = xgb.train(param, dtrain, num_round, evals_result=gpu_res, evals = [], xgb_model = trained_model)    
     return booster
