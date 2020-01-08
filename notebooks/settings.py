@@ -1,4 +1,5 @@
 import os
+import datetime
 
 from pyastrotrader.constants import *
 
@@ -36,3 +37,5 @@ param['subsample'] = 0.5
 
 PLANETS_TO_CALCULATE = [SUN,MOON,SATURN, JUPITER, VENUS, MARS, PLUTO, NEPTUNE, URANUS]
 ASPECTS_TO_CALCULATE = [CONJUNCTION, SQUARE, TRINE, OPPOSITION]
+
+DATE_MINIMAL = datetime.datetime.strptime('1998-01-01', '%Y-%m-%d')
