@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ -z '$ASSET_TO_CALCULATE']
+then
+        echo 'Please set the ASSET_TO_CALCULATE environment variable'
+        exit -1
+fi
+
 #Create a virtualenv if it doesnt exist
 if [ ! -d "./env" ]; then
         virtualenv -p python3 env
@@ -13,7 +19,6 @@ fi
 
 export PYTHONPATH=$PYTHOPATH:$PWD:$PWD/notebooks
 export SWISSEPH_PATH=$PWD/pyastrotrader/swisseph
-export ASSET_TO_CALCULATE=PETR4
 
 #Start the jupyter lab...
 cd notebooks
