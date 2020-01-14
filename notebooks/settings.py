@@ -4,7 +4,8 @@ import datetime
 from pyastrotrader.constants import *
 
 NATAL_DATES = {
-    'PETR4' : '1953-10-03T19:05:00-03:00'
+    'PETR4.SA' : '1953-10-03T19:05:00-03:00',
+    'VALE3.SA' : '1997-05-06T17:47:00-03:00'
 }
 
 SWING_TRADE_DURATION = 5
