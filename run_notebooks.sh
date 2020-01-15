@@ -6,6 +6,12 @@ then
         exit -1
 fi
 
+if [ -z '$ALPHAVANTAGE_KEY' ]
+then
+        echo 'Please set the ALPHAVANTAGE_KEY environment variable'
+        exit -1
+fi
+
 #Create a virtualenv if it doesnt exist
 if [ ! -d "./env" ]; then
         virtualenv -p python3 env
@@ -20,6 +26,12 @@ fi
 export PYTHONPATH=$PYTHOPATH:$PWD:$PWD/notebooks
 export SWISSEPH_PATH=$PWD/pyastrotrader/swisseph
 
-#Start the jupyter lab...
 cd notebooks
-jupyter lab --ip='*' --port=8080 --no-browser
+
+jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute DownloadData.ipynb
+jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute CreateModel.ipynb
+jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute Predict.ipynb
+
+cd ..
+
+source ./clean_notebooks.sh
