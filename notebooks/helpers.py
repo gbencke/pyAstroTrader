@@ -1,4 +1,5 @@
 import os
+import gc
 
 import pandas as pd
 import numpy as np
@@ -202,6 +203,7 @@ def get_best_booster(target_variable, max_interactions, df, astro_columns):
         if current_score < best_score:
             best_score = current_score
             best_booster = booster
+        gc.collect()
     return best_booster, best_score
 
 def predict_score(row, booster, df, astro_columns):
