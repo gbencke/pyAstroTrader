@@ -3,6 +3,7 @@ notebooks/.ipynb_checkpoints/
 notebooks/input/.ipynb_checkpoints/
 .idea/
 notebooks/output/
+notebooks/*.html
 notebooks/input/
 __pycache__/
 
