@@ -8,6 +8,11 @@ def already_added(found_aspects, c_planet, n_planet, c_aspect):
     return len(search) > 0
 
 
+def get_degrees(chart, planetA, planetB):
+    c_planet_degreeA = chart['planets']['planets_degree_ut'][planetA]
+    c_planet_degreeB = chart['planets']['planets_degree_ut'][planetB]
+    return c_planet_degreeA - c_planet_degreeB
+
 def calculate_aspects(chart, planets, transits, tolerance):
     found_aspects = []
 

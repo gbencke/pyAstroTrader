@@ -1,6 +1,8 @@
 from pyastrotrader.calculate import load_config, generate_chart
 from pyastrotrader.transits import calculate_aspects
 from pyastrotrader.transits import calculate_transits
+from pyastrotrader.transits import get_degrees
+
 from .config import check_input
 
 
@@ -15,4 +17,5 @@ def calculate_chart(input_json):
     return output
 
 
-__all__ = ['calculate_transits', 'calculate_chart', 'calculate_aspects']
+__all__ = ['calculate_transits', 'calculate_chart', 'calculate_aspects',
+           'get_degrees']
