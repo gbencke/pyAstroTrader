@@ -27,7 +27,7 @@ SOURCE_FILE = "./input/{}_Daily".format(ASSET_TO_CALCULATE)
 ETA = 0.3
 DEPTH = 5
 NUM_TREES = 100
-MAX_INTERACTIONS = 100
+MAX_INTERACTIONS = 50
 
 param = {}
 param['booster'] = 'gbtree'
