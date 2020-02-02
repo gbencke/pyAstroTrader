@@ -11,6 +11,8 @@ if [ ! -d "./env" ]; then
         virtualenv -p python3 env
         source env/bin/activate
         pip install -r requirements.txt
+        mkdir -p notebooks/input
+        mkdir -p notebooks/output
 else
         source env/bin/activate
 fi
