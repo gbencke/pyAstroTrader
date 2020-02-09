@@ -58,7 +58,7 @@ def get_future_stock_min_price(df, x, max, swing_trade_duration):
         return 0        
     
 def calculate_current_trend(x):
-    if x['PreviousStartPrice'] > 0:
+    if x['PreviousStartPrice'] > 0.0:
         return ((float(x['Price']) / float(x['PreviousStartPrice'])) - 1) * 100
     else:
         return 0;

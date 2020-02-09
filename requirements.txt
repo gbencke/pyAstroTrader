@@ -3,12 +3,15 @@ backcall==0.1.0
 bleach==3.1.0
 certifi==2019.11.28
 chardet==3.0.4
+cloudpickle==1.2.2
 cycler==0.10.0
+dask==2.10.1
 decorator==4.4.1
 defusedxml==0.6.0
 eli5==0.10.1
 entrypoints==0.3
 et-xmlfile==1.0.1
+fsspec==0.6.2
 graphviz==0.13.2
 idna==2.8
 importlib-metadata==1.2.0
@@ -27,6 +30,7 @@ jupyter-core==4.6.1
 jupyterlab==1.2.3
 jupyterlab-server==1.0.6
 kiwisolver==1.1.0
+locket==0.2.0
 MarkupSafe==1.1.1
 matplotlib==3.1.2
 mistune==0.8.4
@@ -40,6 +44,7 @@ openpyxl==3.0.2
 pandas==0.25.3
 pandocfilters==1.4.2
 parso==0.5.1
+partd==1.1.0
 pexpect==4.7.0
 pickleshare==0.7.5
 plotly==4.3.0
@@ -67,6 +72,7 @@ sklearn==0.0
 tabulate==0.8.6
 terminado==0.8.3
 testpath==0.4.4
+toolz==0.10.0
 tornado==6.0.3
 traitlets==4.3.3
 urllib3==1.25.7
