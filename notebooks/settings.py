@@ -1,5 +1,6 @@
 import os
 import datetime
+import multiprocessing
 
 from pyastrotrader.constants import *
 
@@ -8,7 +9,7 @@ NATAL_DATES = {
     'VALE3.SA' : '1997-05-06T17:47:00-03:00'
 }
 
-NPARTITIONS = 16
+NPARTITIONS = multiprocessing.cpu_count() * 2
 
 SWING_TRADE_DURATION = 5
 SWING_EXPECTED_VOLATILITY = 3.5
@@ -27,9 +28,9 @@ DEFAULT_CONFIG = './config/default_config.json'
 SOURCE_FILE = "./input/{}_Daily".format(ASSET_TO_CALCULATE)
 
 ETA = 0.3
-DEPTH = 5
-NUM_TREES = 100
-MAX_INTERACTIONS = 50
+DEPTH = 3
+NUM_TREES = 50
+MAX_INTERACTIONS = 150
 
 param = {}
 param['booster'] = 'gbtree'
