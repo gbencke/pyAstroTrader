@@ -31,14 +31,14 @@ DEFAULT_CONFIG = './config/default_config.json'
 SOURCE_FILE = "./input/{}_Daily".format(ASSET_TO_CALCULATE)
 
 ETA = 0.3
-DEPTH = 5
-NUM_TREES = 200
-MAX_INTERACTIONS = 200
+DEPTH = 3
+NUM_TREES = 500
+MAX_INTERACTIONS = 50
 
 param = {}
 param['booster'] = 'gbtree'
 param['objective'] = 'reg:squarederror'
-param['eval_metric'] = 'auc'
+param['eval_metric'] = 'rmse'
 param['tree_method'] = 'auto'
 param['silent'] = 0
 param['subsample'] = 0.5
