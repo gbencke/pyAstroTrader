@@ -9,7 +9,7 @@ NATAL_DATES = {
     'VALE3.SA' : '1997-05-06T17:47:00-03:00',
     'ITUB4.SA' : '2008-11-04T10:00:00-03:00',
     'BBDC4.SA' : '1943-03-10T10:00:00-03:00',
-    'ABEV4.SA' : '1999-07-01T10:00:00-03:00'
+    'ABEV3.SA' : '1999-07-01T10:00:00-03:00'
 }
 
 NPARTITIONS = multiprocessing.cpu_count() * 2
@@ -33,7 +33,7 @@ SOURCE_FILE = "./input/{}_Daily".format(ASSET_TO_CALCULATE)
 ETA = 0.3
 DEPTH = 3
 NUM_TREES = 50
-MAX_INTERACTIONS = 150
+MAX_INTERACTIONS = 200
 
 param = {}
 param['booster'] = 'gbtree'
