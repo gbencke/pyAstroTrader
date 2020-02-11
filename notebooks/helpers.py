@@ -179,7 +179,7 @@ def get_degrees_for_planets(row, first_planet, second_planet):
 
 def calculate_price_change(df, row):
     if row['Counter'] > 1:
-        return ((float(row['Price']) / float(df[df['Counter'] == row['Counter'] -1]['Open'])) - 1) * 100
+        return 1 if ((float(row['Price']) / float(df[df['Counter'] == row['Counter'] -1]['Price'])) - 1) * 100 > 0 else -1
     else:
         return 0
 
