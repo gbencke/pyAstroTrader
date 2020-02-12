@@ -32,7 +32,7 @@ SOURCE_FILE = "./input/{}_Daily".format(ASSET_TO_CALCULATE)
 
 ETA = 0.3
 DEPTH = 3
-NUM_TREES = 500
+NUM_TREES = 200
 MAX_INTERACTIONS = 50
 
 param = {}
