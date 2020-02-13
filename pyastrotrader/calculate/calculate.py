@@ -61,6 +61,8 @@ def calculate_main_chart(input_data, intermediate, output):
 
     return output
 
+def get_degree(chart, planet):
+    return chart['planets']['planets_degree_ut'][planet]
 
 def calculate_planets(input_data, intermediate, output, config):
     output['planets'] = {}

@@ -15,7 +15,7 @@ from xgboost import plot_tree
 
 
 from pyastrotrader.constants import *
-from pyastrotrader import get_degrees
+from pyastrotrader import get_degrees, get_degree
 from settings import *
 
 charts = {}
@@ -176,6 +176,10 @@ def is_retrograde(row, planet):
 def get_degrees_for_planets(row, first_planet, second_planet):
     c_chart = charts[row['CorrectedDate']]
     return abs(get_degrees(c_chart, first_planet, second_planet))
+
+def get_degree_for_planet(row, planet):
+    c_chart = charts[row['CorrectedDate']]
+    return get_degree(c_chart, planet)
 
 def calculate_price_change(df, row):
     if row['Counter'] > 1:
