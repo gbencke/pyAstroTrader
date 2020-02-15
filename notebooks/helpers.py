@@ -221,6 +221,8 @@ def get_best_booster(target_variable, max_interactions, df, astro_columns):
             best_booster = booster
         gc.collect()
         print("{} - {} of {}, {}".format(target_variable, current_run, max_interactions, best_score))
+        if best_score < 0.001:
+            break
     return best_booster, best_score
 
 def predict_score(row, booster, df, astro_columns):
