@@ -35,7 +35,7 @@ DEFAULT_CONFIG = './config/default_config.json'
 SOURCE_FILE = "./input/{}_Daily".format(ASSET_TO_CALCULATE)
 
 ETA = 0.3
-DEPTH = 3
+DEPTH = 5
 NUM_TREES = 1000
 MAX_INTERACTIONS = 50
 
@@ -47,7 +47,7 @@ param['tree_method'] = 'auto'
 param['silent'] = 0
 param['subsample'] = 0.5
 
-PLANETS_TO_CALCULATE = [SUN,MOON,SATURN, JUPITER, VENUS, MARS, PLUTO, NEPTUNE, URANUS]
+PLANETS_TO_CALCULATE = [SUN,MOON,SATURN, JUPITER, VENUS, MARS]
 ASPECTS_TO_CALCULATE = [CONJUNCTION, SQUARE, TRINE, OPPOSITION]
 
 DATE_MINIMAL = datetime.datetime.strptime('1998-01-01', '%Y-%m-%d')
