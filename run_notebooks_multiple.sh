@@ -28,9 +28,10 @@ export SWISSEPH_PATH=$PWD/pyastrotrader/swisseph
 
 cd notebooks
 
-count=1
+count=0
+MAX_INTERACTIONS=50
 
-while [ $count -lt 10 ]
+while [ $count -lt $MAX_INTERACTIONS ]
 do
         echo "Running:$count"
         jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute DownloadData.ipynb
