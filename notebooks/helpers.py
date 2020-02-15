@@ -230,8 +230,8 @@ def predict_score(row, booster, df, astro_columns):
     matrix_to_predict = matrix_to_predict.reshape((1,-1))
     row_features = xgb.DMatrix(matrix_to_predict, feature_names = astro_columns)
     predicted = booster.predict(row_features)[0]
-    if predicted > 0.95:
-        #corrected_row = df[df['CorrectedDate'] == row['CorrectedDate']][astro_columns]
-        #display(eli5.explain_prediction(booster, doc=corrected_row, feature_names  = astro_columns))
-        pass
+    if predicted > 1:
+        predicted = 1
+    if predicted < -1:
+        predicted = -1
     return predicted    
