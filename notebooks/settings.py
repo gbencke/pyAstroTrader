@@ -5,11 +5,15 @@ import multiprocessing
 from pyastrotrader.constants import *
 
 NATAL_DATES = {
-    'PETR4.SA' : '1953-10-03T19:05:00-03:00',
+    'PETR4.SA' : '1953-10-03T19:05:00-03:00', 
     'VALE3.SA' : '1997-05-06T17:47:00-03:00',
     'ITUB4.SA' : '2008-11-04T10:00:00-03:00',
     'BBDC4.SA' : '1943-03-10T10:00:00-03:00',
     'ABEV3.SA' : '1999-07-01T10:00:00-03:00'
+}
+
+DATE_MINIMAL_STOCK = {
+    'PETR4.SA' : datetime.datetime.strptime('1996-02-01', '%Y-%m-%d')
 }
 
 NPARTITIONS = multiprocessing.cpu_count() * 2
