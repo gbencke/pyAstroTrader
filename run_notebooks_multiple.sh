@@ -26,6 +26,7 @@ fi
 export PYTHONPATH=$PYTHOPATH:$PWD:$PWD/notebooks
 export SWISSEPH_PATH=$PWD/pyastrotrader/swisseph
 
+rm -rf ./notebooks/output/*
 cd notebooks
 
 count=0
