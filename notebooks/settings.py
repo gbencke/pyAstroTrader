@@ -36,8 +36,9 @@ SOURCE_FILE = "./input/{}_Daily".format(ASSET_TO_CALCULATE)
 
 ETA = 0.3
 DEPTH = 5
-NUM_TREES = 1000
+NUM_TREES = 250
 MAX_INTERACTIONS = 50
+MIN_PRECISION = 0.00001
 
 param = {}
 param['booster'] = 'gbtree'
@@ -47,7 +48,7 @@ param['tree_method'] = 'auto'
 param['silent'] = 0
 param['subsample'] = 0.5
 
-PLANETS_TO_CALCULATE = [SUN,MOON,SATURN, JUPITER, VENUS, MARS]
+PLANETS_TO_CALCULATE = [SUN,MOON, SATURN]
 ASPECTS_TO_CALCULATE = [CONJUNCTION, SQUARE, TRINE, OPPOSITION]
 
 DATE_MINIMAL = datetime.datetime.strptime('1998-01-01', '%Y-%m-%d')
