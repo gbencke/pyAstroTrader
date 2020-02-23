@@ -48,7 +48,7 @@ param['tree_method'] = 'auto'
 param['silent'] = 0
 param['subsample'] = 0.5
 
-PLANETS_TO_CALCULATE = [SUN,MOON, SATURN]
+PLANETS_TO_CALCULATE = [SUN, MOON, VENUS, MERCURY, MARS, JUPITER]
 ASPECTS_TO_CALCULATE = [CONJUNCTION, SQUARE, TRINE, OPPOSITION]
 
 DATE_MINIMAL = datetime.datetime.strptime('1998-01-01', '%Y-%m-%d')
