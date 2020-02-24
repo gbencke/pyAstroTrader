@@ -26,11 +26,14 @@ fi
 export PYTHONPATH=$PYTHOPATH:$PWD:$PWD/notebooks
 export SWISSEPH_PATH=$PWD/pyastrotrader/swisseph
 
+date > start.txt
+
 rm -rf ./notebooks/output/*
 cd notebooks
 
 count=0
-MAX_INTERACTIONS=50
+MAX_INTERACTIONS=200
+
 
 jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute DownloadData.ipynb
 
@@ -45,3 +48,5 @@ done
 cd ..
 
 source ./clean_notebooks.sh
+
+date > end.txt
