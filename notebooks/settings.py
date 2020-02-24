@@ -35,21 +35,20 @@ DEFAULT_CONFIG = './config/default_config.json'
 SOURCE_FILE = "./input/{}_Daily".format(ASSET_TO_CALCULATE)
 
 ETA = 0.3
-DEPTH = 5
-NUM_TREES = 250
+DEPTH = 7
+NUM_TREES = 1000
 MAX_INTERACTIONS = 50
-MIN_PRECISION = 0.00001
+MIN_PRECISION = 0.0000001
 
 param = {}
 param['booster'] = 'gbtree'
 param['objective'] = 'reg:squarederror'
-param['eval_metric'] = 'rmse'
+param['eval_metric'] = 'auc'
 param['tree_method'] = 'auto'
 param['silent'] = 0
 param['subsample'] = 0.5
 
-PLANETS_TO_CALCULATE = [SUN, MOON, VENUS, MERCURY, MARS, JUPITER, SATURN,
-                        URANUS, NEPTUNE, PLUTO]
-ASPECTS_TO_CALCULATE = [CONJUNCTION, SQUARE, TRINE, OPPOSITION]
+PLANETS_TO_CALCULATE = [SUN, MOON, VENUS, MERCURY, MARS, JUPITER, SATURN]
+ASPECTS_TO_CALCULATE = []
 
 DATE_MINIMAL = datetime.datetime.strptime('1998-01-01', '%Y-%m-%d')

@@ -30,7 +30,7 @@ rm -rf ./notebooks/output/*
 cd notebooks
 
 count=0
-MAX_INTERACTIONS=100
+MAX_INTERACTIONS=50
 
 while [ $count -lt $MAX_INTERACTIONS ]
 do

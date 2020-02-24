@@ -183,9 +183,12 @@ def get_degree_for_planet(row, planet):
 
 def calculate_price_change(df, row):
     if row['Counter'] > 1:
-        return 1 if ((float(row['Price']) / float(df[df['Counter'] == row['Counter'] -1]['Price'])) - 1) * 100 > 0 else -1
-    else:
-        return 0
+        if ((float(row['Price']) / float(df[df['Counter'] == row['Counter'] -1]['Price'])) - 1) * 100 > 1.5:
+            return 1
+        else:
+            if ((float(row['Price']) / float(df[df['Counter'] == row['Counter'] -1]['Price'])) - 1) * 100 < -1.5:
+                return -1
+    return 0
 
 def create_booster_swing_trade(eta,depth,num_trees, train_x, train_y, test_x, test_y, columns, trained_model):
     param['max_depth'] = depth
