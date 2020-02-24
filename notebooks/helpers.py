@@ -183,10 +183,10 @@ def get_degree_for_planet(row, planet):
 
 def calculate_price_change(df, row):
     if row['Counter'] > 1:
-        if ((float(row['Price']) / float(df[df['Counter'] == row['Counter'] -1]['Price'])) - 1) * 100 > 1.5:
+        if ((float(row['Price']) / float(df[df['Counter'] == row['Counter'] -1]['Price'])) - 1) * 100 > 1:
             return 1
         else:
-            if ((float(row['Price']) / float(df[df['Counter'] == row['Counter'] -1]['Price'])) - 1) * 100 < -1.5:
+            if ((float(row['Price']) / float(df[df['Counter'] == row['Counter'] -1]['Price'])) - 1) * 100 < -1:
                 return -1
     return 0
 

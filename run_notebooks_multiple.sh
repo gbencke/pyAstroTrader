@@ -32,10 +32,11 @@ cd notebooks
 count=0
 MAX_INTERACTIONS=50
 
+jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute DownloadData.ipynb
+
 while [ $count -lt $MAX_INTERACTIONS ]
 do
         echo "Running:$count"
-        jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute DownloadData.ipynb
         jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute CreateModel.ipynb
         jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute Predict.ipynb
         count=`expr $count + 1`
