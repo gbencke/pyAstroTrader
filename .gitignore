@@ -7,4 +7,5 @@ notebooks/*.html
 notebooks/input/
 __pycache__/
 start.txt
+end.txt
 
