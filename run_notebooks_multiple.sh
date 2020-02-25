@@ -32,7 +32,7 @@ rm -rf ./notebooks/output/*
 cd notebooks
 
 count=0
-MAX_INTERACTIONS=200
+MAX_INTERACTIONS=50
 
 
 jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute DownloadData.ipynb
