@@ -46,12 +46,12 @@ jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute DownloadData.ipynb
 while [ $count -lt $MAX_INTERACTIONS ]
 do
         echo "Running:$count"
-        if [ $MODEL -eq "PRICE_CHANGE"]
+        if [ $MODEL == "PRICE_CHANGE" ]
         then
                 jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute CreateModel.price.change.ipynb
                 jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute Predict.price.change.ipynb
         fi
-        if [ $MODEL -eq "SWING_TRADE"]
+        if [ $MODEL == "SWING_TRADE" ]
         then
                 jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute CreateModel.swing.trade.ipynb
                 jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute Predict.swing.trade.ipynb
