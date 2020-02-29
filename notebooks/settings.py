@@ -38,7 +38,10 @@ ETA = 0.3
 DEPTH = 7
 NUM_TREES = 1000
 MAX_INTERACTIONS = 50
-MIN_PRECISION = 0.000001
+if os.environ['MODEL'] == 'SWING_TRADE':
+    MIN_PRECISION = 0.000001
+else:
+    MIN_PRECISION = 0.000001
 
 param = {}
 param['booster'] = 'gbtree'

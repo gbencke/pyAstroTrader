@@ -97,6 +97,22 @@ def detect_swing_trade(x, swing_expected_volatility):
                 x['SwingStrength'] > (x['IntradayVolatility'] * swing_expected_volatility) and \
                 abs(x['FutureTrend']) >= abs(x['CurrentTrend']) else 0
 
+def detect_swing_trade_bottom(x, df , swing_trade_duration, max):
+    if x['Counter'] < (max - swing_trade_duration) and \
+       x['Counter'] > (swing_trade_duration - 1):
+        
+        min_counter = x['Counter'] - swing_trade_duration
+        max_counter = x['Counter'] + swing_trade_duration
+        
+        current_frame = df
+        current_frame = current_frame[current_frame['Counter'] >= min_counter]
+        current_frame = current_frame[current_frame['Counter'] <= max_counter]
+
+        return 1 if current_frame['Low'].min() == x['Low'] else 0
+    else:
+        return 0
+    
+
 def clean_swing_trade(df, x, swing_trade_duration):
     if x['IsSwing'] == 1:
         current_range = df[df['Counter'] <= (x['Counter'] + swing_trade_duration)]
