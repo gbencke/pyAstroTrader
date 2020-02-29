@@ -12,6 +12,12 @@ then
         exit -1
 fi
 
+if [ -z '$MODEL' ]
+then
+        echo 'Please set the MODEL environment variable'
+        exit -1
+fi
+
 #Create a virtualenv if it doesnt exist
 if [ ! -d "./env" ]; then
         virtualenv -p python3 env
@@ -40,8 +46,16 @@ jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute DownloadData.ipynb
 while [ $count -lt $MAX_INTERACTIONS ]
 do
         echo "Running:$count"
-        jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute CreateModel.ipynb
-        jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute Predict.ipynb
+        if [ $MODEL -eq "PRICE_CHANGE"]
+        then
+                jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute CreateModel.price.change.ipynb
+                jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute Predict.price.change.ipynb
+        fi
+        if [ $MODEL -eq "SWING_TRADE"]
+        then
+                jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute CreateModel.swing.trade.ipynb
+                jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute Predict.swing.trade.ipynb
+        fi
         count=`expr $count + 1`
 done
 
