@@ -53,7 +53,7 @@ prompt-toolkit==3.0.2
 psutil==5.6.7
 ptyprocess==0.6.0
 pudb==2019.2
-Pygments==2.5.2
+Pygments==2.7.4
 pyparsing==2.4.6
 pyrsistent==0.15.6
 pyswisseph==2.0.0.post2
