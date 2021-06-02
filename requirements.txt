@@ -75,7 +75,7 @@ testpath==0.4.4
 toolz==0.10.0
 tornado==6.0.3
 traitlets==4.3.3
-urllib3==1.25.7
+urllib3==1.26.5
 urwid==2.1.0
 vext==0.7.3
 wcwidth==0.1.7
